@@ -41,3 +41,15 @@ def calculate():
 
 
 print(calculate())
+
+# ✍️ ЗАДАЧА 2:
+# Є список температур в градусах Цельсія: [23.5, 25.1, 19.8, 30.0]
+# Напиши функцію, яка переведе їх у Фаренгейти (формула: F = C * 9/5 + 32)
+
+cels_temp = [23.5, 25.1, 19.8, 30.0]
+
+def to_fahrenheit(celsius_list):
+    return [(c * 9)/5 + 32 for c in celsius_list]
+
+far_temp = to_fahrenheit(cels_temp)
+print(far_temp)
