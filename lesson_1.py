@@ -53,3 +53,22 @@ def to_fahrenheit(celsius_list):
 
 far_temp = to_fahrenheit(cels_temp)
 print(far_temp)
+
+# ✍️ ЗАДАЧА 3:
+# Є словник користувача:
+# user = {"name": "Ivan", "email": "ivan@example.com", "is_active": True}
+# Напиши функцію user_summary(user), яка повертає рядок:
+# "Ivan (ivan@example.com) - Active"
+# або "Ivan (ivan@example.com) - Inactive"
+
+user = {"name": "Ivan", "email": "ivan@example.com", "is_active": True}
+
+user = {"name": "Ivan", "email": "ivan@example.com", "is_active": True}
+
+def user_summary(user):
+    if user["is_active"] == True:
+        return user["name"] + " (" + user["email"] + ") - Active"
+    else:
+        return user["name"] + " (" + user["email"] + ") - Inactive"
+
+print(user_summary(user))
