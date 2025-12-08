@@ -22,8 +22,8 @@ elif age < 65:
 else:
     print("You are a senior")                
 
-city_normalized = city.strip().lower()
+city = city.strip().lower()
 
-if age >= 18 and city_normalized == "dnipro":
+if age >= 18 and city == "dnipro":
     print("You are an adualt from Dnipro")
 
