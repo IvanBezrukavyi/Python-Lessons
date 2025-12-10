@@ -72,5 +72,23 @@ def count_bugs_by_severity(bugs):
 bugs_by_severity = count_bugs_by_severity(bugs)
 print(bugs_by_severity)
 
-# Task 4. Provide statistics by severity + status, e.g. "high_open": 2, "high_closed": 0      
+# Task 5. Provide statistics by severity + status, e.g. "high_open": 2, "high_closed": 0      
 
+def count_bugs_by_severity(bugs):
+   
+    stats = {
+
+    }
+
+    for bug in bugs:
+        current_severity = bug["severity"].lower()
+        current_status = bug["status"].lower()
+    
+        result = current_severity + "_" + current_status
+        if result not in stats:
+            stats[result] = 0
+        stats[result] += 1
+    return stats
+
+result_by_severity_status =  count_bugs_by_severity(bugs)
+print(result_by_severity_status)
