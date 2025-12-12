@@ -9,10 +9,13 @@ def square(x):
 
 print([square(x) for x in square_list])
 
+
 # Як перевірити тип змінної name?
-def greet (name):
-    return (type(name))
-print (greet("Anna"))
+def greet(name):
+    return type(name)
+
+
+print(greet("Anna"))
 
 # ✍️ ЗАДАЧА 1:
 # Напиши функцію get_age_category(age), яка повертає:
@@ -48,8 +51,10 @@ print(calculate())
 
 cels_temp = [23.5, 25.1, 19.8, 30.0]
 
+
 def to_fahrenheit(celsius_list):
-    return [(c * 9)/5 + 32 for c in celsius_list]
+    return [(c * 9) / 5 + 32 for c in celsius_list]
+
 
 far_temp = to_fahrenheit(cels_temp)
 print(far_temp)
@@ -65,10 +70,12 @@ user = {"name": "Ivan", "email": "ivan@example.com", "is_active": True}
 
 user = {"name": "Ivan", "email": "ivan@example.com", "is_active": True}
 
+
 def user_summary(user):
-    if user["is_active"] == True:
+    if user["is_active"]:
         return user["name"] + " (" + user["email"] + ") - Active"
     else:
         return user["name"] + " (" + user["email"] + ") - Inactive"
+
 
 print(user_summary(user))

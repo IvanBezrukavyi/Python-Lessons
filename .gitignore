@@ -9,7 +9,7 @@
 __pycache__/
 
 # Ignore virtual environments
-venv/
+.venv/
 .env/
 
 # Ignore IDE/editor folders

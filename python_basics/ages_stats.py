@@ -12,7 +12,7 @@ max_age = ages[0]
 
 for a in ages:
     if a > max_age:
-        max_age = a  
+        max_age = a
 print(f"Max age is {max_age}")
 
 # Task 3
@@ -32,4 +32,3 @@ print(f"Min age is {min_age}")
 # or
 min_age = min(ages)
 print(f"Min age is {min_age}")
-

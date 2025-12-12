@@ -8,7 +8,8 @@ def get_age_category(age: int) -> str:
         return "adult"
     else:
         return "senior"
-    
+
+
 name = input("What's your name? ")
 age = int(input("How old are you? "))
 raw_city = input("Where are you from? ")
@@ -25,12 +26,13 @@ print(f"Your age category is: {category}.")
 ages = [25, 30, 29, 35, 41, 38]
 
 
-def get_age_stats(ages: list[int]) -> tuple[float, int, int, int]: 
+def get_age_stats(ages: list[int]) -> tuple[float, int, int, int]:
     average = round(sum(ages) / len(ages), 2)
     max_age = max(ages)
     min_age = min(ages)
     count_30_plus = len([a for a in ages if a >= 30])
     return average, max_age, min_age, count_30_plus
+
 
 average, max_age, min_age, count_30_plus = get_age_stats(ages)
 print("Average:", average)
@@ -44,11 +46,13 @@ bug_titles = [
     "PAYMENT failed",
     "Page not found",
     "payment timeout",
-    "CRASH on load"
+    "CRASH on load",
 ]
+
 
 def count_payment_bugs(bug_titles: list[str]) -> int:
     return len([p for p in bug_titles if "payment" in p.lower()])
+
 
 payment_count = count_payment_bugs(bug_titles)
 print("Payment-related bugs:", payment_count)

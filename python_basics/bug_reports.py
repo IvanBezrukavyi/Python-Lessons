@@ -4,7 +4,7 @@ bug_titles = [
     "PAYMENT failed",
     "Page not found",
     "payment timeout",
-    "CRASH on load"
+    "CRASH on load",
 ]
 
 total = 0

@@ -1,7 +1,7 @@
 # Task 1
-name = "Ivan",
-surname = "Bezr",
-country = "Ukraine",
+name = ("Ivan",)
+surname = ("Bezr",)
+country = ("Ukraine",)
 age = 39
 print(name, surname, country, age)
 
@@ -35,4 +35,3 @@ print("City:", type(city))
 
 age_next_year = age + 1
 print("У наступному році тобі виповнеться", age_next_year)
-
