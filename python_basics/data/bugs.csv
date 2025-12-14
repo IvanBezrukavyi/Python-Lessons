@@ -1,0 +1,7 @@
+id,title,severity,status
+1,Login error,low,open
+2,PAYMENT failed,high,open
+3,Page not found,medium,closed
+4,payment timeout,high,open
+5,Crash on load,high,closed
+6,UI glitch,low,open
