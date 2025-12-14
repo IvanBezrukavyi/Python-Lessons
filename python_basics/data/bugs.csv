@@ -1,7 +1,11 @@
-id,title,severity,status
-1,Login error,low,open
-2,PAYMENT failed,high,open
-3,Page not found,medium,closed
-4,payment timeout,high,open
-5,Crash on load,high,closed
-6,UI glitch,low,open
+id,title,severity,status,component
+1,Login error, low ,Open,Auth
+2,PAYMENT failed,HIGH, open ,Billing
+3,Timeout on checkout,critical,IN_PROGRESS,Checkout
+4,UI glitch on profile,Low,CLOSED,UI
+5,Payment button missing, P1 ,Open,Billing
+X6,Null pointer in reports,medium,open,Reports
+7, ,high,open,API
+8,Search returns 500,,open,Search
+9,Payment retries too many times,blocker, ,Billing
+10,DB migration issue,High,Closed,DB

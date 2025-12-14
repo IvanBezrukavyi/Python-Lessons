@@ -26,14 +26,22 @@ def load_bugs_from_csv(filepath: Path) -> list[dict[str, Any]]:
                 continue
 
             status = row["status"].strip().lower()
+
             if status == "":
                 status = "open"
 
+            if status in ("in progress", "in-progress"):
+                status = "in_progress"
+
+            if status == "in_progresss":
+                status = "in_progress"
+
             severity = row["severity"].strip().lower()
             if severity == "":
-                print("Skip row (empty severity):", row)
                 continue
 
+            if severity in ("p1", "blocker"):
+                severity = "critical"
             bugs.append(
                 {
                     "id": bug_id,
@@ -77,7 +85,7 @@ def count_bugs_by_severity_status(bugs: list[dict]) -> dict[str, int]:
     stats = {}
 
     for b in bugs:
-        key = b["severity"] + "_" + b["status"]  # наприклад: "high_open"
+        key = b["severity"] + "_" + b["status"]
         stats[key] = stats.get(key, 0) + 1
 
     return stats
@@ -85,5 +93,36 @@ def count_bugs_by_severity_status(bugs: list[dict]) -> dict[str, int]:
 
 print("By severity+status:", count_bugs_by_severity_status(bugs))
 
-print("Statuses:", sorted(set(b["status"] for b in bugs)))
-print("Severities:", sorted(set(b["severity"] for b in bugs)))
+print("Statuses:", sorted({b["status"] for b in bugs}))
+print("Severities:", sorted({b["severity"] for b in bugs}))
+
+
+def normalize_status(raw: str) -> str:
+
+    status = raw.strip().lower()
+
+    if status == "":
+        return "open"
+
+    if status in ("in progress", "in-progress"):
+        return "in_progress"
+
+    if status == "in_progresss":
+        return "in_progress"
+
+
+print(normalize_status(" Open "))
+
+
+def normalize_severity(raw: str) -> str:
+    severity = raw.strip().lower()
+
+    if severity == "":
+        return ""
+
+    if severity in ("p1", "blocker"):
+        severity = "critical"
+    return severity
+
+
+print(normalize_severity("P1"))
