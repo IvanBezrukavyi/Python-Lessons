@@ -13,6 +13,11 @@ def load_bugs_from_csv(filepath: Path) -> list[dict[str, Any]]:
         reader = csv.DictReader(f)
 
         for row in reader:
+            component = row["component"].strip().lower()
+
+            if component == "":
+                component = "unknown"
+
             row_id = row["id"].strip()
             try:
                 bug_id = int(row_id)
@@ -48,6 +53,7 @@ def load_bugs_from_csv(filepath: Path) -> list[dict[str, Any]]:
                     "title": title,
                     "severity": severity,
                     "status": status,
+                    "component": component,
                 }
             )
     return bugs
@@ -126,3 +132,32 @@ def normalize_severity(raw: str) -> str:
 
 
 print(normalize_severity("P1"))
+
+
+def open_critical_by_component(bugs):
+    stats = {}
+    for b in bugs:
+        if b["status"] == "open" and b["severity"] == "critical":
+            print(b["id"], b["component"], b["title"])
+            comp = b["component"]
+            stats[comp] = stats.get(comp, 0) + 1
+    return stats
+
+
+stats = open_critical_by_component(bugs)
+items = list(stats.items())
+items.sort(key=lambda x: x[1], reverse=True)
+print(items[:3])
+
+
+def list_open_critical(bugs):
+    result = []
+    for b in bugs:
+        if b["status"] == "open" and b["severity"] == "critical":
+            result.append(b)
+    return result
+
+
+critical_open = list_open_critical(bugs)
+print("Count:", len(critical_open))
+print("First:", critical_open[0])
